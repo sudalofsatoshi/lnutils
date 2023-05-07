@@ -5,10 +5,10 @@ from pprint import pprint
 
 def getWallets():
 	"""
-		Retrieve a list of wallets
+	Retrieve a list of wallets
 
-		Returns:
-			wallets (list) if error None
+	Returns:
+		wallets (list) if error None
 	"""
 
 	# REQUIRED: replace environment variaables for your URL and ADMIN_API_KEY
@@ -26,12 +26,12 @@ def getWallets():
 
 def getWalletBalance(apikey):
 	"""
-		Retrieve a balance for a given user key
+	Retrieve a balance for a given user key
 
-	    Args:
-			apikey (str): a user's api key
-		Returns:
-			sats (int) if error None
+	Args:
+		apikey (str): a user's api key
+	Returns:
+		sats (int) if error None
 	"""
 
 	api = os.environ["LNBITS_URL"] + "/api/v1/wallet"
@@ -50,13 +50,13 @@ def getWalletBalance(apikey):
 
 def createInvoice(receiver, sats):
 	"""
-		Create an invoice for a given user key and msats
+	Create an invoice for a given user key and msats
 
-	    Args:
-			receiver (dict): a receiver's wallet name and apikey
-			msats (int): milli sats (1 mats == 1000 msats)
-		Returns:
-			payment hash (str) if error None
+	Args:
+		receiver (dict): a receiver's wallet name and apikey
+		msats (int): milli sats (1 mats == 1000 msats)
+	Returns:
+		payment hash (str) if error None
 	"""
 
 	api = os.environ["LNBITS_URL"] + "/api/v1/payments"
@@ -78,13 +78,13 @@ def createInvoice(receiver, sats):
 
 def getInvoice(receiver, paymentHash):
 	"""
-		Retrieve an invoice for a given payment hash and api key
+	Retrieve an invoice for a given payment hash and api key
 
-	    Args:
-			receiver (dict): a receiver's wallet name and apikey
-			msats (int): milli sats (1 mats == 1000 msats)
-		Returns:
-			bolt11 invoice (str) if error None
+	Args:
+		receiver (dict): a receiver's wallet name and apikey
+		msats (int): milli sats (1 mats == 1000 msats)
+	Returns:
+		bolt11 invoice (str) if error None
 	"""
 
 	api = os.environ["LNBITS_URL"] + "/api/v1/payments"
@@ -101,15 +101,15 @@ def getInvoice(receiver, paymentHash):
 
 def payInvoice(sender, receiver, invoice, msats):
 	"""
-		Pay invoice from sender to receiver
+	Pay invoice from sender to receiver
 
-	    Args:
-			sender (dict): a sender's wallet name and apikey
-			receiver (dict): a receiver's wallet name and apikey
-			invoice (str): bolt11 invoice
-			msats (int): milli sats (1 mats == 1000 msats)
-		Returns:
-			bolt11 invoice (str) if error None
+	Args:
+		sender (dict): a sender's wallet name and apikey
+		receiver (dict): a receiver's wallet name and apikey
+		invoice (str): bolt11 invoice
+		msats (int): milli sats (1 mats == 1000 msats)
+	Returns:
+		bolt11 invoice (str) if error None
 	"""
 	api = os.environ["LNBITS_URL"] + "/api/v1/payments"
 
